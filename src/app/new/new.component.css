@@ -1,0 +1,12 @@
+.box{
+  border: 1px solid gray;
+  height: 400px;
+  background-color: #eee;
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-right: 200px;
+  border-radius: 10px;
+}
+input{
+  width: 50%;
+}

@@ -1,0 +1,25 @@
+<div class="box">
+  <form #productForm="ngForm" (submit)="addProduct(productForm)" novalidate>
+    <div class='form group'>
+      Title:<input type="text" name="title" class="form-control" [(ngModel)]="product.title" #title="ngModel" required minlength="4">
+      <span *ngIf="title.errors && (title.dirty || title.touched)">
+          <span style="color:red" [hidden]="!title.errors.required">Title is required!</span>
+          <span style="color:red" [hidden]="!title.errors.minlength">Title should be at least 4 characters long!</span>
+      </span>
+      <span style="color:green" [hidden]="!title.valid">Great!</span>
+    </div>
+    <div class='form group'>
+      Price:<input type="number" name="price" class="form-control" [(ngModel)]="product.price" #price="ngModel" required>
+      <span *ngIf="price.errors && (price.dirty || price.touched)">
+          <span style="color:red" [hidden]="!price.errors.required">Price is required!</span>
+      </span>
+      <span style="color:green" [hidden]="!price.valid">Great!</span>
+    </div>
+    <div class='form group'>
+      Image Url:<input type="text" name="img_url" class="form-control" [(ngModel)]="product.img_url" #img_url="ngModel">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.form.valid">Add Product</button>
+  </form>
+
+</div>
